@@ -1,6 +1,9 @@
 package com.example.spinner;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +24,16 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void buttonClick(View view) {
+        Spinner sp = (Spinner) findViewById(R.id.spinner);
+        // 找到選項的 array
+        String[] fruits = getResources().getStringArray(R.array.fruit);
+        int index = sp.getSelectedItemPosition();
+
+        TextView result = (TextView) findViewById(R.id.tvResult);
+        result.setText("您選的是：" + fruits[index]);
+
+    }
+
 }
